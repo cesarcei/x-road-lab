@@ -1,0 +1,51 @@
+version: "3.5"
+ 
+services:
+  central-server:
+    container_name: CentralServer
+    image: niis/xroad-central-server
+    ports:
+      - "4000:4000"
+      - "4001:8080"
+      - "4002:9998"
+    networks:
+      Lab_network:
+        ipv4_address: 10.10.0.50
+  SecurityServer_A:
+    container_name: SecurityServer_A
+    image: niis/xroad-security-server
+    ports:
+      - "4100:4000"
+      - "4101:8080"
+    networks:
+      Lab_network:
+        ipv4_address: 10.10.0.51
+  SecurityServer_B:
+    container_name: SecurityServer_B
+    image: niis/xroad-security-server
+    ports:
+      - "4200:4000"
+      - "4201:8080"
+    networks:
+      Lab_network:
+        ipv4_address: 10.10.0.52
+  SecurityServer_C:
+    container_name: SecurityServer_C
+    image: niis/xroad-security-server
+    ports:
+      - "4300:4000"
+      - "4301:8080"
+    networks:
+      Lab_network:
+        ipv4_address: 10.10.0.53
+  
+    
+networks:
+  Lab_network:
+    name: Lab_network
+    driver: bridge
+    internal: false
+    ipam:
+      driver: default
+      config:
+      - subnet: 10.10.0.0/24
