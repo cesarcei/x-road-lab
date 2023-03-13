@@ -41,7 +41,9 @@ docker exec -i -t [dockeid] /bin/bash
 Para copiar los archivos de certificado se deberá ejecutar los siguientes comandos 
 
 docker cp CentralServer:/home/ca/CA/certs/ca.cert.pem .
+
 docker cp CentralServer:/home/ca/CA/certs/ocsp.cert.pem .
+
 docker cp CentralServer:/home/ca/CA/certs/tsa.cert.pem .
 
 -Certificate Profile Info-
