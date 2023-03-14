@@ -1,66 +1,63 @@
-X-Road-Lab V.2
+# **X-Road-Lab V.2**
 
-Laboratorio de ecosistema básico de X-Road
+## :test_tube: Laboratorio de ecosistema básico de X-Road
 
-Hola!
+### :raising_hand_man: ¡Hola!
 
 Este repositorio contiene un laboratorio básico de X-Road 7 el cual está compuesto por tres host de Security Server y Un Central Server con las entidades de certificación.
 
-Nota: No se debe usar en un ambiente productivo, este entorno es solo con fines educativos. 
+***Nota: No se debe usar en un ambiente productivo, este entorno es solo con fines educativos.***
 
-Saludos y éxito en tu formación con X-Road. 
+Saludos y éxito en tu formación con X-Road.
+>By César Manzanero
 
-By César Manzanero
+### Requisitos
 
-Requisitos previos:
 Se requiere tener instalado Docker y haberlo configurado previamente. Información al respecto en el sitio oficial de Docker.com (Para entornos Windows se requiere wls2).
 
 Una vez completado los requisitos previos se debe clonar o descargar este repositorio y situarse dentro de la misma por medio de una terminal.
 
 Posteriormente ejecutar el archivo compose mediante el siguiente comando:
-
+ ```sql
 docker-compose up -d
 
+CentralServer ipv4_address: 10.10.0.50
 
-CentralServer
- ipv4_address: 10.10.0.50
- 
-SecurityServer_A
- ipv4_address: 10.10.0.51
- 
-SecurityServer_B
- ipv4_address: 10.10.0.52
- 
-SecurityServer_C
- ipv4_address: 10.10.0.53
+SecurityServer_A ipv4_address: 10.10.0.51
 
-Para acceder a la terminal de los servidores se debe ejecutar el siguiente comando reemplazando [dockeid] por el id o nombre del servidor al que desea acceder
+SecurityServer_B ipv4_address: 10.10.0.52
 
-docker exec -i -t [dockeid] /bin/bash 
+SecurityServer_C ipv4_address: 10.10.0.53
+ ```
+ Para acceder a la terminal de los servidores se debe ejecutar el siguiente comando reemplazando [dockeid] por el id o nombre del servidor al que desea acceder
+  ```sql
+docker-compose up -d
 
-Para copiar los archivos de certificado se deberá ejecutar los siguientes comandos 
+CentralServer ipv4_address: 10.10.0.50
 
-docker cp CentralServer:/home/ca/CA/certs/ca.cert.pem .
+SecurityServer_A ipv4_address: 10.10.0.51
 
-docker cp CentralServer:/home/ca/CA/certs/ocsp.cert.pem .
+SecurityServer_B ipv4_address: 10.10.0.52
 
-docker cp CentralServer:/home/ca/CA/certs/tsa.cert.pem .
-
--Certificate Profile Info-
-
+SecurityServer_C ipv4_address: 10.10.0.53
+ ```
+ Certificate Profile Info
+```sql
 ee.ria.xroad.common.certificateprofile.impl.FiVRKCertificateProfileInfoProvider
-
+ ```
 Add OCSP Responder 
+```sql
 http://10.10.0.50:8888
-
-Add Timestamping Service
+ ```
+Add Timestamping Service 
+```sql
 http://10.10.0.50:8899
-
-API REST  
-
+ ```
+API REST
+```sql
 http://jsonplaceholder.typicode.com/posts
 
 curl -X GET "https://{securityserver}/r1/{serviceId}/v2/pets/1124" -H "accept: application/json" -H "X-Road-Client: {client}"
 
 curl -X GET "http://localhost:4201/r1/MXQROO/GOV/SS-01/PROVIDER/allowedMethods" -H "accept: application/json" -H "X-Road-Client: MXQROO/GOV/SS-02/CONSUMER"
-
+ ```
