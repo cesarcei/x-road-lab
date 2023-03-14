@@ -31,15 +31,13 @@ SecurityServer_C ipv4_address: 10.10.0.53
  ```
  Para acceder a la terminal de los servidores se debe ejecutar el siguiente comando reemplazando [dockeid] por el id o nombre del servidor al que desea acceder
   ```sql
-docker-compose up -d
+docker exec -i -t [dockeid] /bin/bash 
 
-CentralServer ipv4_address: 10.10.0.50
+Para copiar los archivos de certificado se deberá ejecutar los siguientes comandos 
 
-SecurityServer_A ipv4_address: 10.10.0.51
-
-SecurityServer_B ipv4_address: 10.10.0.52
-
-SecurityServer_C ipv4_address: 10.10.0.53
+docker cp CentralServer:/home/ca/CA/certs/ca.cert.pem .
+docker cp CentralServer:/home/ca/CA/certs/ocsp.cert.pem .
+docker cp CentralServer:/home/ca/CA/certs/tsa.cert.pem .
  ```
  Certificate Profile Info
 ```sql
