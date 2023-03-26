@@ -21,6 +21,8 @@ Posteriormente ejecutar el archivo compose mediante el siguiente comando:
  ```sql
 docker-compose up -d
 
+Usuarios : xrd   password: secret  
+
 CentralServer ipv4_address: 10.10.0.50
 
 SecurityServer_A ipv4_address: 10.10.0.51
