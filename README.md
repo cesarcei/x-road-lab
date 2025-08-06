@@ -1,4 +1,4 @@
-# **X-Road-Lab V.2**
+# **X-Road-Lab V.2.1**
 
 ## :test_tube: Laboratorio de ecosistema básico de X-Road
 
