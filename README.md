@@ -29,7 +29,6 @@ SecurityServer_A ipv4_address: 10.10.0.51
 
 SecurityServer_B ipv4_address: 10.10.0.52
 
-SecurityServer_C ipv4_address: 10.10.0.53
  ```
  Para acceder a la terminal de los servidores se debe ejecutar el siguiente comando reemplazando [dockeid] por el id o nombre del servidor al que desea acceder
   ```sql
