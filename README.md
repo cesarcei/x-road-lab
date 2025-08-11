@@ -56,6 +56,8 @@ API REST
 ```sql
 http://jsonplaceholder.typicode.com/posts
 
+    curl -H "accept: application/json" -H "X-Road-Client: <INSTANCE_IDENTIFIER>/<MEMBER_CLASS>/<MEMBER_CODE>/<SUBSYSTEM_CODE>" "http://{SECURITYSERVER}/r1/<INSTANCE_IDENTIFIER>/<MEMBER_CLASS>/<MEMBER_CODE>/<SUBSYSTEM_CODE>/listMethods" -k
+
 curl -X GET "https://{securityserver}/r1/{serviceId}/v2/pets/1124" -H "accept: application/json" -H "X-Road-Client: {client}"
 
 curl -X GET "http://localhost:4201/r1/MXQROO/GOV/SS-01/PROVIDER/allowedMethods" -H "accept: application/json" -H "X-Road-Client: MXQROO/GOV/SS-02/CONSUMER"
